@@ -1,0 +1,43 @@
+--------------------Routing RIP Static -------------------------
+	-> Routing with other network adding those n/w isn't this network.
+-> configure ip of each router 
+************** command *************
+1. select router 
+2. enable ( press enter )
+3. config terminal ( press enter )
+4. interface gigabiethernet 0/0 , 0/1 ,0/2 ( press enter )
+5. ip address 10.0.0.3_255.0.0.0 ( press enter )
+6. no shutdown ( enter )
+7. do wr .
+******************* routing commond **********************
+1. enable ( enter )
+2. config terminal ( enter )
+3. router rip ( enter )
+4. network 30.0.0.0_255.0.0.0_20.0.0.2 < gateway > (enter)
+   network 40.0.0.0_255.0.0.0_20.0.0.2 < gateway > (enter)
+   network 50.0.0.0_255.0.0.0_20.0.0.2 < gateway > (enter)
+5.do wr ( enter ) 
+___________________________________________________________
+   
+--------------------- Routing Rip Dynamic -----------------
+	-> Routing with self network and configure routing .
+-> configure ip of each router 
+************** command *************
+1. select router 
+2. enable ( press enter )
+3. config terminal ( press enter )
+4. interface gigabiethernet 0/0 , 0/1 ,0/2 ( press enter )
+5. ip address 10.0.0.3_255.0.0.0 ( press enter )
+6. no shutdown ( enter )
+7. do wr .
+******************* routing commond **********************
+-> perform on selected network .
+
+1. enable ( enter )
+2. config terminal ( enter )
+3. router rip ( enter )
+4. network 10.0.0.0 (enter)
+   network 20.0.0.0 (enter)
+   network 30.0.0.0 (enter)
+5. do wr ( enter )
+________________________________________________________________
