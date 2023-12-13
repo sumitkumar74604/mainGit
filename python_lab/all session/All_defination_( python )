@@ -1,0 +1,107 @@
+# Variable: It is a reserved memory location to store value.
+In Python, variable refers to a reference variable, when an value
+is assign to a variable, it store memory address of that value. 
+
+Arithmetic Operator(+,-,*,/,%,//(floor division),**(exponential))
+
+Type Casting: It is a mechanism to convert one type of reference into another type.
+In Python, variables are of dynamic type i.e their is no fixed datatype.so when we assign any 
+value to that variable, it datatype depends upon that value type.
+
+ASCII: American Standard Code For Information Interchange.
+
+if elif(else if) else - Decision making control statement
+
+while _Loop:repitation of code.
+
+For_loop:- '''
+range(n):
+single arg: start=0 and stop=n-1
+-----------------------------------
+range(n1,n2)
+two arg: start=n1 and stop=n2-1
+-----------------------------------
+range(n1,n2,step)
+three arg: start=n1 , stop=n2-1 and step=more than 1
+'''
+TwoDList([row][col]) : It is a collection of OneD List.
+
+'''
+Dictionary: It is a sequence which is used to store heterogenous data reference, where each data will be given by a key-value pair.
+Syntax:
+dic = { key:value,key1:value....,keyn:value }
+key must be unqiue.
+key is immutable and value is mutable.
+'''
+Tuple: It is a sequence which is used to store bulk amount of heterogenous data , where each data is given by index value used to access and handle data.
+Note: Tuple is immutable in nature
+Syntax:
+tup_name = (e1,e2,....en)
+'''
+String : It is a sequence capable to store multiple characters,numbers,aplhanumeric data , each element will be given by numeral index value which is used to store and manage string data.
+Note: String is immutable in nature.
+'''
+
+'''
+Function: 
+It is a self contained block of statement which is used to perform a particular task.
+It is used to reduce code.
+Syntax:
+def func_name(arguments):
+    ...statements
+    return return_value
+=================
+On the basis of return type and arguments, Functions are divided into four type:
+1.function without return type and without argument.
+2.function without return type and with argument.
+3.function with return type and without argument.
+4.function with return type and with argument.
+'''
+Resursion Function: Function calling itself.
+5! = 5x4x3x2x1
+'''
+#In Python , Functions are pass by reference
+#Integer,Float,String and Tuple are immutable Objects. so a new object is created in the memory.
+'''
+'''
+File Handling:It is a storage capable to store bulk amount of data simulteneously at particular location.This storage is permanent in nature.i.e once created they can also be accessed and managed manually.
+predefined function:
+obj = open("file location","mode")
+
+File Mode:
+1.write(w):
+It checks if file exists or not.If not, created a new file and content can be written.but if file is exists, then it will override file content.
+================
+2.append(a):It checks if file exists or not.If not, created a new file and content can be written.but if file is exists, then it will add a new content.
+================
+3.read(r):It checks if file exists or not.If not,it will result in error.If exists, then it will read a file content
+================
+
+'''
+
+# fo = open("data.txt","w")
+# print(fo)
+# print("File Name is:",fo.name)
+# print("File Mode is:",fo.mode)
+# print("File is Closed:",fo.closed)
+# fo.close()
+# print("File is Closed:",fo.closed)
+# print("-----------------------------")
+
+'''
+Exception:It is a runtime error, when it occurs program terminates.
+Types of Exception:
+1.NameError
+'''
+Exception:It is a runtime error, when it occurs program terminates.
+Types of Exception:
+1.NameError
+2.ZeroDivisionError
+3.IndexError
+4.KeyError
+5.ValueError
+6.TypeError
+7.ModuleNotFoundError
+8.FileNotFoundError
+'''
+'''

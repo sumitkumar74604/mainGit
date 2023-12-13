@@ -1,0 +1,21 @@
+1. create a function to print greater of
+two numbers passed in argument
+
+2. Create a function to print greater of
+three numbers passed in argument
+
+3. create a function to calculate and
+return factorial of a number passed in
+argument
+
+4. create a function which accepts an
+array of Int in argument and print sum
+of all elements
+
+5. Create a function that accept two Int
+arrays and return sum of all elements of
+both arrays
+
+6. Create a function that accepts two
+tuples of type (Float,Int) and return
+t1.0/t2.0 + t1.1*t2.1 

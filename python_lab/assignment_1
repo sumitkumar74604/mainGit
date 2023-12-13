@@ -1,0 +1,91 @@
+
+-------------------------------------------------------------
+Q.5 Write a program accepts a number from user and check given number is palindrome number or
+not.
+Q.6 Write a program accepts a number from user and check given number is Armstrong number or not.
+Q.7 Write a program accept a three digits number from user and check biggest digit of given number.
+Q.8 Write a program that accepts the age of person, find out the person is eligible for voting or not.
+Q.9 Write a program that accepts a number from user and calculate whether it is positive or negative
+or zero
+Q.10 Write a program to calculate whether character is in lowercase or uppercase.
+Q.11 Write a program to calculate whether year is leap year or not.
+Q.12 Write a program to calculate whether a character is vowel or consonant.
+Q.13 Write a program that accepts five subjects’ marks from user and calculate the total marks 
+Q.14 Write a program for generating electricity Bill Accept last month unit and current month unit from
+user, then calculate and print bill amount according to following condition
+0-150 charges 4 rs/unit
+151-300 charges 6 rs/unit
+301-500 8rs/unit
+>500 charges 10rs/unit
+-------------------------------------------------------
+Q.1 Write a program accepts two numbers from user and calculates first no is divisible by second or
+not.
+Q.2 Write a program accepts a number from user and check given number is even or odd.
+Q.3 Write a program accepts two numbers from user and calculate biggest number out of two
+numbers.
+Q.4 Write a program accepts three numbers from user and calculate biggest number out of three
+numbers.                                
+------------------------------------------------------
+Q.1 Write a program to find out square of given number.
+Q.2 Write a program to find out area of circle.
+Q.3 Write a program to find out simple interest (SI).                                                                               Q.4 Write a program accept 5 subject marks (Hint P=67,C=87,M=90,H=98,E=88) and calculate total
+marks and percentage.
+Q.5 Write a program for swapping of two integer variables using third variable.
+Q.6 Write a program for swapping of two integer variable without third variable                                   Q.7 Write a program to calculate sum of digits number.(Hint:-123 is a given number then o/p=6)
+Q.8 Write a program accepts 4 digits no. and display the no. in reverse order.
+Q.9 Write a program accepts an amount in rupees (Hint Rs 4567) and find out how many currency of
+Rs 2000,500,200,100,50,20,10,5,2,1
+
+--------------------------------------------------------------
+Date :- 16/10/23
+Q.1 Write a program to print Fibonacci Series.
+Q.2 Write a program to calculate sum of digits of a number.
+Q.3 Write a program to calculate sum of squares of n natural number.
+Q.4 Write a program to accept n number from user and show how many number are even or odd.
+Q.5 Write a program to find LCM of two numbers.
+Q.6 Write a program to find HCF of two numbers.
+Q.7 Write a program that accepts a number from user and check given number is prime number or not.
+--------------------------------------------------------------
+'''
+    5
+   545
+  54345
+ 5432345
+543212345
+ 5432345
+  54345
+   545
+    5  
+
+
+54321
+5432
+543
+54
+5
+
+    5
+   45
+  345
+ 2345
+12345
+
+1
+23
+345
+4567
+56789
+
+12345
+1234
+123
+12
+1
+
+1
+2 3
+4 5 6
+7 8 9 10
+11 12 13 14 15
+
+'''

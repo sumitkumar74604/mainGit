@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+</head>
+<style>
+    body{
+        margin-top: 2%;
+        background-size: cover;
+        background-size: 100%;
+        background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.pexels.com%2Fphotos%2F639086%2Fpexels-photo-639086.jpeg%3Fcs%3Dsrgb%26dl%3Dbeautiful-beautiful-flowers-bloom-639086.jpg%26fm%3Djpg&f=1&nofb=1&ipt=f78ab5cf824ad6f8ace71e4be21b9a0cea31ea176f0c574d9749ed2b324fa620&ipo=images');
+    }
+    #body {
+        padding: 5%;
+        height: 400px;
+        width: 300px;
+        
+        border-radius: 5%;
+        font-size: 28px;
+        font-weight: 5px;
+        background-color: rgb(243, 241, 237);
+        background-size: 100%;
+        box-shadow: 3px 20px 600px 100px whitesmoke;
+    }
+    #body #main{
+
+        
+    }
+
+    #body #main .ubox {
+        float:left;
+        
+        block-size: 20px;
+    }
+    #body #main .pass {
+        float:left;
+        block-size: 20px;
+        
+    }
+    #submit{
+        margin-left: 10px;
+        float: left;
+    }
+    #reset{
+        margin-left: 10px;
+        float: left;
+    }
+    #body #signup{
+        margin-top: 10%;
+        float: right;
+        margin-left:0%;
+        text-decoration: none;
+        text-transform: capitalize ;
+    }   
+    #body #forget_user{
+        float: left;
+        margin-left: 55%;
+        text-decoration: none  red;
+        text-transform: capitalize ;
+    }
+    #forget_pass{
+        float: left;
+        margin-left: 37%;
+        text-transform: capitalize ;
+        text-decoration-color: black;
+        
+    }
+</style>
+<body> 
+<center>
+    <div id="body">
+    <div id="main">
+        <label class="ubox" >user name</label><br>
+        <input class="ubox" type="text" name="user" placeholder="abc@gmail.com"><br><br>
+        <label class="pass">password</label><br>
+        <input class="pass"  type="password" name="pass" required="required" placeholder="Abc@#123" maxlength="12">
+    </div>
+    <br>
+    <div id="submit"> <input type="submit" value="login"> </div>
+    <div id="reset"> <input type="reset" value="reset"> </div>
+    <div id="signup"> <a href="sign up">sign up</a> </div>
+    <div id="forget_user"> <a href="Forget User">Forget User </a> </div>
+    <br>
+    <div id="forget_pass"> <a href="Forget password">Forget password </a> </div>
+</div>
+</center>
+</body> 
+</html>

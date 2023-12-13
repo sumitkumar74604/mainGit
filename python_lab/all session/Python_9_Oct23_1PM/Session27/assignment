@@ -1,0 +1,25 @@
+# Create abstract class Taxable with
+# variables taxRate, and function
+# getTax()->Float
+# -==========
+# create class
+# Employee(id,name,salary) 
+# add display
+# function. Inherit Taxable abstract class.
+# Decide income taxRate 30% for salary
+# above 10 lac, 20% for salary between 5
+# and 10 lac and 6% for salary below 5 lac
+# -
+# create class Restaurent (restaurent
+# name, Bill amount). 
+# add display and
+# decide GST 10% and
+# inherit Taxable abstract class to get getTax()
+# -
+# create 2 object of Employee and 3
+# Obj of RestaurentBill and print total
+# amount of tax on all 5 objects
+# -
+# Create Global function that accept
+# reference of type Taxable and print 5%
+# of refund on tax applied.
