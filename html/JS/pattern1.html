@@ -1,0 +1,28 @@
+<!--    *
+       
+      * * *
+     
+    * * * * *
+-->
+<script>
+    var x=parseInt(prompt("enter last digit"))
+    
+    for(var i=1;i<=x;i++)
+    {
+
+
+        if(i%2!=0)
+        {
+            for(var k=1;k<=x-i;k++)
+            {
+                document.write("-");
+      
+            }        
+                        for( var j=1;j<=i;j++)
+                             {
+                                document.write(" *");
+                             }
+        }
+          document.write("<br>")
+    }
+</script>

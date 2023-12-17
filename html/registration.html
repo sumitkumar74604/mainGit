@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-7">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Details </title>
+</head>
+<body>
+    <center>
+        <form method="post">
+    <table border>
+       <thead><h3>registration</h3></thead>
+       <hr>
+       <tbody>
+        <tr>
+            <td colspan="4"><label><center>Applicant Information</center></label></td>
+            <p>
+        </tr>
+        <tr>
+            <td><label>First Name</label></td>
+            <td><input type="text"  name="Fname" placeholder="Fist name"><sup><b> * </b></sup></td>
+            <td><label>Last Name</label></td>
+            <td><input type="text"  name="lname" placeholder="Last name"><sup><b> * </b></sup></td>
+        </tr>
+        <tr>
+            <td><label> Mobile No.</label></td>
+            <td> <input type="text" name="num" maxlength="10" placeholder=" number 0-9"><sup><b> * </b></sup></td>
+            <td><label> phone No.</label></td>
+            <td> <input type="text" name="phone" maxlength="12" placeholder="0631-12224598"></td>
+        </tr>
+       
+        <tr>
+            <td><label>Permanant Address</label></td>
+            <td><textarea cols="20" rows="3" placeholder="Permanant Address" ></textarea><sup><big> * </big></sup></td>
+            <td><label>Current Address</label></td>
+            <td><textarea cols="20" rows="3" placeholder="Current Address"></textarea></td>
+        
+        </tr>
+        <tr>
+            
+        </tr>
+        <tr>
+            <td><label>Postal</label></td>
+            <td><input type="text" maxlength="6" name="pin" placeholder="100001"></td>
+            <td><label>Email id</label></td>
+            <td><input type="email"  name="mail" placeholder="Email@yahoo.com"></td>
+        </tr>
+       
+        <tr>
+            <td><label> city</label></td>
+                <td> 
+                    <select>
+                        <option> no select </option>
+                        <option value="bhopal">bhopal</option>
+                        <option value="indore">indore</option>
+                        <option value="betul">betul</option>
+                        <option value="dhar">dhar</option>
+                        <option value="rewa">rewa</option>
+                        <option value="satna">satna</option>
+                        <option value="khandwa">khandwa</option>
+                        <option value="khargone">khargone</option>
+                        <option value="bhopal">jhanshi</option>
+                        <option value="bhopal">bhopal</option>
+                    </select>
+                </td>                
+            
+            <td><label>Occupation</label></td>
+            <td><input type="text"  name="occ" placeholder="Business"></td>
+        </tr>
+        
+
+        <tr>
+            <td><label> State</label>
+                <td>
+                <select>
+                <option> no select </option>
+                <option value="m.p">M.P</option>
+                <option value="u.p">U.p</option>
+                <option value="jharkhand">jharkhand</option>
+                <option value="bihar">bihar</option>
+                <option value="A.p">A.P</option>
+                <option value="kerla">kerla</option>
+                <option value="Hydrabad">Hydrabad</option>
+                <option value="Nagaland">Nagaland</option>
+                <option value="Manipur">Manipur</option>
+                <option value="Asam">Asam</option>
+                <option value="Delhi">Delhi</option>
+                </select>
+            </td>
+                <td><label>Nation</label></td>
+                <td>
+                    <select>
+                        <option> select </option>
+                        <option value="India">India</option>
+                        <option value="Russia">Russia</option>
+                        <option value="America">America</option>
+                        <option value="Japan">Japan</option>
+                        <option value="Korea">Korea</option>
+    
+                        
+                    </select>
+                </td>
+            
+        </tr>
+        
+        <tr>
+            <td><label>Date of birth</label></td>
+            <td><input type="datetime-local"></td>
+        </tr>
+        <tr>
+            <td><label>Gender</label></td>
+            <td>
+            Male<input type="radio"  name="Gender" value="male">
+            Female<input type="radio"  name="Gender" value="Female">
+            Other<input type="radio"  name="Gender" value="transgender">
+        </td>
+        </tr>
+        <tr>
+            <td><label>Adhar-card</label></td>
+            <td>
+                <input type="text " maxlength="14"  name="adhar" placeholder="Adhar-card"><sup><big> * </big></sup>
+            </td> 
+            <td> 
+                <label>Pan-card</label></td>
+                <td><input type="text" maxlength="12"  name="PAN" placeholder="Pan-card"><sup><b> * </b></sup>
+            </td>
+            <tr><td><label></label></td><td><input type="file" name="adhar" value="Adhar-card"></td>
+            <td><label></label></td><td><input type="file" name="Pan-card" value="Pan-card"></td></tr>
+       </tr>
+       <tr>
+        <td><label>voter Id</label></td>
+        <td>
+            <input type="text " maxlength="10"  name="voter" placeholder="voter card">
+        </td> 
+        <td><label>Photo</label></td>
+           <td><input type="file" name="img" value="image"></td>
+            <tr><td><label></label></td><td><input type="file" name="voter" value="voter card"></td> 
+               
+            
+   </tr>
+        <tr>
+           
+        </tr>
+        
+        <tr>
+            <td><label>Bank</label></td>
+            <td>
+            <select>
+                <option value="hdfc">hdfc</option>
+                <option value="idbi">idbi</option>
+                <option value="sbi">sbi</option>
+                <option value="union">union</option>
+                <option value="icici">icici</option>
+            </select>
+        
+         
+            <select>
+                <option>Branch</option>
+                <option value="bhopal">bhopal</option>
+                <option value="indore">indore</option>
+                <option value="betul">betul</option>
+                <option value="dhar">dhar</option>
+                <option value="rewa">rewa</option>
+                <option value="satna">satna</option>
+                <option value="khandwa">khandwa</option>
+                <option value="khargone">khargone</option>
+                <option value="bhopal">jhanshi</option>
+                <option value="bhopal">bhopal</option>
+            </select>
+        </td>  
+            <td><label>Nominee</label></td>
+            <td><input type="text" name="Nominee"></td>
+        </tr>
+        <tr>
+            <td><level>services</level></td>
+            <td>
+                <label>passbook</label>
+                <input type="checkbox" name="passbook" value="passbook">
+                <label>Debit card</label>
+                <input type="checkbox" name="debit card" value="Debit card">
+                <label>statement</label>
+                <input type="checkbox" name="statement" value="statement">
+                <label>chequebook</label>
+                <input type="checkbox" name="chequebook" value="chequebook">
+            </td>
+            
+            <td><label>relation</label></td>
+                <td>
+                    <select>
+                        <option>relation</option>
+                        <option value="Mother">Mother</option>
+                        <option value="Father">Father</option>
+                        <option value="Brother">Brother</option>
+                        <option value="Sister">Sister</option>
+                        <option value="Spouse">Spouse</option>
+                        <option value="Douther">Douther</option>
+                        <option value="son">son</option>
+                    </select>
+                </td>
+            
+        </tr>
+        <tr>
+            <td><label>user id</label></td>
+            <td><input type="email"  name="uid" placeholder="User12345@"></td>
+            <td><label>Password</label></td>
+            <td><input type="password"  name="Pass" placeholder="Pass(1@abc$%123)" required></td>
+        </tr>
+        <tr>
+            <td><label>Feedback</label></td>
+            <td> <textarea name="feed"cols="50" rows="3" placeholder="Give your Feedback"></textarea></td>
+
+            
+        </tr>
+      
+    </tbody>
+    </table>
+    <tfoot>
+        <tr>
+            <td colspan="2">
+                    <input type="submit" value="submit">
+                    <input type="reset" value="reset">
+                    <input type="submit" name="next" value="next">
+            </td>
+        </tr>    
+    </tfoot>
+</form>
+</center>
+</body>
+</html>

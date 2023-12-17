@@ -1,0 +1,15 @@
+Declare tuple to store information
+about Book Title, Price, Auther,
+pageCount. Store information of any 4
+books in an array and print as below
+Title
+Pages
+Price
+Auther
+========================================
+=====
+Let US C
+450
+Kanitkar
+338
+.......................................

@@ -1,0 +1,1 @@
+num='str'input("enter the character\t")if num >='a' and num <='z': print("lowercase \t",num)elif num >='A' and num <='Z': print("uppercase",num)elif num >=0 and num <=9: print("number",num)else: print("your are input special character",num)		

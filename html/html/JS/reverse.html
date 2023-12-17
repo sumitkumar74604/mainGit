@@ -1,0 +1,14 @@
+<script>
+     var n=prompt("enter any no");
+        parseInt(n);
+    
+    var r=0;
+    var s=0;
+    while(n>0)
+    {
+        r=n%10;
+        s=(s*10)+r;
+        n=parseInt(n/10);   
+    }
+    document.write(s);
+</script>

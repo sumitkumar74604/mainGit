@@ -1,0 +1,18 @@
+// Find the maximum value and print only A's value ;
+
+
+#include<stdio.h>
+int main()
+{ 
+int a,b,c;
+ printf(" compare mamimum value of a \n\n"); 
+ printf(" Enter a  = "); 
+ scanf("%d",&a);// input value ;
+ printf(" Enter b  = "); 
+ scanf("%d",&b);// input value ;
+ printf(" Enter c  = "); 
+ scanf("%d",&c);// input value ;
+max=(a>b) && (a>c)?printf("%d',a):(b>c)?printf("%d",b);
+ 
+}
+
