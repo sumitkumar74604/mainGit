@@ -1,0 +1,36 @@
+Docker code :- 
+ 1. to see image 
+ 	 []# docker image
+ 	 
+2. to find image in docker hub 
+	[ ]# docker serach jenkins
+
+3. To download image from dockerhub to local machine 
+	[ ] # docker pull jenkind
+
+4. to give name to Container 
+	-> docker run -it --name sumitubuntu/bin/bash
+
+5. To check service is start or not 
+	[ ] # service docer status
+
+6. To start container
+	-> docker start sumit
+
+7. to go inside container
+	-> docker attach sumit
+
+8. To see all containers
+	-> docker ps -a
+
+9. Top see only running containers
+	-> docker ps  < process statusv >
+
+10. To stop container
+	-> docker stop sumit
+
+11. To delete container
+	-> docker rm sumit
+	
+12. Docker service start / stop
+	service docker start / stop
