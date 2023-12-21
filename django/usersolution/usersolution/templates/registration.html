@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+{%load static%}
+{%block slider%}
+<form   method="POST"   action="">
+    {% csrf_token %}
+    <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4"style = "color:White">Name</label>
+          <input type="text" class="form-control" id="inputEmail4" placeholder="Name">
+          <label for="inputPassword4" style = "color:White">Email</label>
+          <input type="email" class="form-control" id="inputPassword4" placeholder="Email">
+          <label for="inputPassword4" style = "color:White">Father Name</label>
+          <input type="text" class="form-control" id="inputPassword4" placeholder="Father Name">
+          <label for="inputPassword4" style = "color:White">Mobile No</label>
+          <input type="number" class="form-control" id="inputPassword4" placeholder="Mobile No">
+          <label for="inputPassword4" style = "color:White">City</label>
+          <input type="text" class="form-control" id="inputPassword4" placeholder="City">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Sign up</button>
+    </form>
+{%endblock%}
