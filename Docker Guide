@@ -1,17 +1,23 @@
-Docker code :- 
- 1. to see image 
+kumar.sumit@gmail.com
+Password1612@#$
+kumarsumit74604
+
+
+Docker code :-
+ 1. to see image
  	 []# docker image
- 	 
-2. to find image in docker hub 
+
+2. to find image in docker hub
 	[ ]# docker serach jenkins
 
-3. To download image from dockerhub to local machine 
+3. To download image from dockerhub to local machine
 	[ ] # docker pull jenkind
 
-4. to give name to Container 
-	-> docker run -it --name sumitubuntu/bin/bash
+4. to give name to Container
+	-> docker run -it --name sumitubuntu /bin/bash
+			<	|- intractive terminal >
 
-5. To check service is start or not 
+5. To check service is start or not
 	[ ] # service docer status
 
 6. To start container
@@ -22,7 +28,8 @@ Docker code :-
 
 8. To see all containers
 	-> docker ps -a
-
+		<	|-- process status >
+		
 9. Top see only running containers
 	-> docker ps  < process statusv >
 
@@ -31,6 +38,138 @@ Docker code :-
 
 11. To delete container
 	-> docker rm sumit
-	
+
 12. Docker service start / stop
 	service docker start / stop
+***************************************
+=> Now create image of this container 
+	-> docker commit Newcontainer updateimage 
+					|			|
+			< name of container >|< name of image  >	
+=> Create image from this container 
+	-> docker run -it --name s_container updatecontainer /bin/bash 
+		|---docker images 
+------------------------------------------------------							
+create docker image from diffrent INSTRACTIONS
+--> FROM --> RUN --> MAINTAINER --> COPY --> ADD --> EXPOSE --> WORKDIR , CMD , ENTRYPOINT , ENV ;  
+
+======>>>>> Steps to Create a image or container --
+	1. Create a file named Dockerfile
+	2. instraction in dockerfile
+	3. Build dDockerfile to create image 
+	4. run image to create container
+-----------------------------------------------------------------------------------------------------------
+Create a docker file 
+FROM--> vi Dockerfile < enter >
+	|--- FROM ubuntu
+	|--- RUN echo "abcddfghjkfcgvbh " > /tmp/testfile
+	|---:wq
+	
+-----------------------------------
+Create image from Dockerfile
+ 	->> docker build -t test .
+ 			|-- docker ps -a
+ 			|-- docker images
+--------------------------------------
+create container from created image 
+	->> docker run -it --name sumit test /bin/bash < enter >
+	|--- ls
+	|--- cd tmp ls < enter > 
+--------------------------------
+creating imagefrom different command:-
+ -> vi Dockerfile
+ 		{
+ 			FROM ubuntu
+ 			WORKDIR /tmp
+ 			RUN echo " sdfghj " > /tmp /testfile
+ 			ENV myfile /tmp
+ 			COPY testfile /tmp
+ 			ADD test tar.gz /tmp
+ 		}
+--------------------------------------------
+How to share a Docker Volume 
+-------------------------------------------
+	|-- Creating volume from Dockerfile
+	
+1. vi Dockerfile
+	|{
+	 	FROM ubuntu
+	 	VOLUME ["/myvolume']
+	 }
+-----------------------------------------------
+2. Create image from this file
+	|--- docker build -t myimage .
+3. Now create a container from this image 7 run
+	| docker run -it --name container1 myimage /bin/bash
+		|-- ls < enter >
+-----------------------------------------------------------
+4.Share volume with another container 
+	|-- container_1 ---- container_2
+--> docker run -it --name container_2<new> --privileged=true --volumes-from container_1 ubuntu /bin/bash
+
+5. Now after creating container_2 , myvolume_1 is visible whatever you do in one volume , cam ee from other volume 
+(i) -- touch /myvolume_1/samplefile
+(ii) -- docker start container_1
+(iii) -- docker attach container_1
+	|--- ls 
+	exit
+-----------------------------------------------------------------------------------
+Volume ( Host - container )
+1. --> /home/ec2-user
+	--> docker run -it --name hostcont -v /home/ec2-user:/sumit --privileged=true ubuntu bin/bash 
+	
+->> cd /sumit
+
+--> docker volume create < name >
+--> docker volume rm < name >
+--> docker volume prune
+--> docker volume inspect < volume name>
+--> 
+
+-----------------------------------------------------------------------------------------------------
+Docker port expse and port Pubsh  <  exec >
+
+
+(i)- service docker start 
+(ii) - docker run -td --name TechServer -p 80:80 ubuntu 
+		|-- docker port TechServer 
+				|--- o/p - 80 /tcp -> 0.0.0.0 
+(iii) - docker exec -it TechServer /bin/bash *
+			|--- cd /var/www/html
+					|---- echo " SDFGHJKDFGH " >index.html
+		|-- apt install apache2 -y
+		|-- service apache2 start
+		
+--> paste your IP address on your broswer then check
+-------------------------------------------------------------------
+===> Push docker hub your image 
+
+(i) -- Create a image of your container 
+		< docker commit container_1 image_1 >
+(ii) - docker login
+		|-- enter your credential
+		
+(iii) - docker tag image1 dockerid/image name 
+(iv)-- docker push docker id/ docker name
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 		
+
+

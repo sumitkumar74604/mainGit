@@ -1,0 +1,88 @@
+ 1.Create 3 ec2 machine Acces via Putty 
+ 2. Download Ansible and packages each machine 
+ 	|-> wget http://fedoraproject.org/pub/epel/epd-relese latest 7oarch.rpm
+  --> ls 
+  	|--yum update -y
+  	[]# -- yum install git python python-level python-pi openssl ansible -y
+  	[]# -- vi /etc/ansible/host
+  		|-- paste node1 node2 private ip
+  	[]# -- vi etc/ansible/host
+  		|- sudo - user = root
+  	create one user in each all node or server
+  	[]# -- adduser ansible
+  	[]# -- passwd ansible
+  	[]# -- su ansible
+  --------------------------------------
+  give Priviledge right 
+  	[]# -- visudo
+  		|--- root ALL = (ALL)-ALL
+  		(ansible) ALL=(ALL) NOPASSWD:ALL
+  		:wq
+  	Do things for other nodes 
+  []# yum install httpd -y
+  ---------------------------------
+  Stable connection Node and server 
+  	[]# -- ssh 172.31.41.240
+  		|-- permission Denied
+  	Now we have to do some changes in sshd-config file 
+  	[]# -- vi etc/ssh/sshd-config
+  		|-- 
+  []# -- su -ansible
+  []# -- ssh -172.31.41.210
+  
+  	
+  	
+*******************************************************************************
+1.Create ansible machine 
+	|-- {
+		#!bin/bash
+		  sudo su
+		  yum update -y
+		}
+2. open your 1st ec2 machine in ypur machine 
+	(i) download Ansible in your all machine
+	(ii) go to - vi /etc/ansible/ansible.cfg
+		|-- i - [demo] 
+			   |-- node1 -- 172.0.41.31 < private ip > } Group
+			   |-- node2 -- 172.4.31.25 <private ip>   } Group
+			   :wq
+	(iii) []# adduser anible
+	      []# passwd anisble
+	  * Do same process on each machine 
+	  	( for user or password )
+	(iv) Switch ( su -ansible)
+	(vi) vi sudo
+		|-- i - scrool down
+			root ALL=(ALL) ALL
+			ansible L=(ALL) NOPASSWD:ALL
+	(vii) /etc/ssh/sshd-config
+		|-- password authication yes 
+3.Now go to ansible server and create keys 
+	[]# -- ssh -keygen
+	[]# -- ls-a
+		|-- .ssh
+	[]# -- cd .ssh
+	[]# -- ls
+ * we need to copy public key in both nodes 
+ []# -- ssh-copy-id ansible@172.31.41.25
+ 		|-- password -
+ []# -- ssh-copy-id ansible@172.31.41.25
+ 		|-- password -- 
+ []# -- cd ..
+ 	|-- ssh 172.31.42.14
+ 	
+ 	
+---------------------------------------------------------
+Host Pattern :- 
+
+	-> "all" pattern refres to all the machine
+	
+	-> ansible all --list-host
+	-> ansible <groupname> --list-host
+	-> ansible <group> [0] --list-host
+	-> groupname [0] -> pick first machine of group
+	-> groupname [1] -> pick second machine of group
+	-> groupname [-1] -> pick last machine of group
+	-> groupname [0:1] -> pick first two machine of group
+	
+	

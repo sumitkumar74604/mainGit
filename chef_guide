@@ -1,0 +1,151 @@
+				pull Based Tools 							Push based Tools 
+				Ansible										chef
+				Salt stark									puppet
+
+
+	chef	:- login ----
+	CHEF MANAGER :- kumar.sumit74604@gmail.com
+	pass	:- Password1612@#$
+	user	:-	kumarsumit74604
+	Organization :-	kumarsumit74604
+	------------------------------------------
+	---------------------------------------------
+Connecting to Chef server to Workstation  :-
+(i) :- knife ssl check	< chef-repo from your local machine >
+(ii) :- create node in < aws machine in advance option > 
+		{
+			#!/bin/bash
+			sudo su
+			yum update -y
+		}
+-----------------------------------------------------------------
+Multiple recipe call :-
+
+-> sudo chef-client -zr "recipe[test-cookbook::test-recipe]","recipe[test-cookbook::apache-recipe]"
+------------------------------------------------------------------------------------------------------
+call multiple recipe by Default recipe :-
+	vi default recipe.rb
+		|-- include_recipe "recipe[text-cookbook::text-recipe]"
+		|-- include_recipe "recipe[text-cookbook::apache-recipe]"
+	-> chef-client -zr "recipe[text-cookbook::default]"
+--------------------------------------------------------------------------------------------------------
+call multiple recipe by Default recipe with different cookbooks :-
+
+	-> -> chef-client -zr "recipe[text-cookbook::default]","recipe[apache-cookbook::default]"
+	
+------------------------------------------------------------------------------------------------------------
+*************************************************************************************************************
+----------------------------------------------------------------------------------------------------------------
+	Work from  server apply  code to ohai :-  
+Chef server client 
+1. check chef API connection with server
+		-> knife ssl check <  in che-repo/.chef > cat congif.rb
+		
+2. Create Node on aws (Ec2 )
+	( i ) -- after creating Node < bootstrip >
+		| --- knife bootstrap " node  private Ip " --ssh-user ec2-user --sudo -i " node key pair " -N < Node name >
+	ex.- ->   knife bootstrap 172.10.255.10 --ssh-user ec2-user --sudo -i singapore keypair.pem -N Node_1
+	
+3. check node list 
+	 -> knife node list < node_1 > 
+
+4. Upload cookbooks to chef server  :-
+	
+	-> knife cookbook upload test-cookbook 
+		-> knife cookbook list < show cookbooks >
+
+5. Attach the recipe which we would to apply or Run  on nodes 
+
+	-> knife node run_list set node_1 "recipe[test-cookbook::test-recipe]"
+		-> knife node show node_1 < show your recipe >
+	
+-------------------------------------------------------------------------------------------------------------------
+**************************************************************************************************************
+-------------------------------------------------------------------------------------------------------------------
+	Work for Nodes :-
+	
+1. Access node via putty and login  < ec2-user >
+(i). Type command :- 
+
+	**-> chef-client
+	
+(ii) - Create fully automatic to Node 
+
+		|--  vi /etc/crontab/
+				{
+					* * * * * root chef-client < save >
+				}
+2. if you want to new node with your server or workstation :-
+
+	(i)	|---- Create a new machine AWS ( ec2 ) < node 2 >
+				Advance 	{
+							#!/bin/bash
+							sudo su
+							yum update -y
+							echo " * * * * * root chef-client " >> /etc/crontab
+						}
+	(ii)	--- Come back to your chef-workstation 
+				(a) -- Bootstrap 
+ 			--- knife bootstrap " node  private Ip " --ssh-user ec2-user --sudo -i " node key pair " -< name >
+		ex.- ->   knife bootstrap 172.10.255.10 --ssh-user ec2-user --sudo -i singapore keypair.pem -N Node_1
+-----------------------------------------------------------------------------------------------------------------
+
+3. Add cookbook with new node 
+i)	-> knife cookbook upload test-cookbook 
+		-> knife cookbook list < show cookbooks >
+
+
+2. Attach the recipe which we would to apply or Run  on nodes 
+	-> knife node run_list set node_1 "recipe[test-cookbook::apache-recipe]"
+		-> knife node show node_1 < show your recipe >
+		
+(i)	-> knife cookbook upload test-cookbook 
+
+----------------------------------------------------------------------------------------------------------------------
+Creating Role < Fully automation >
+
+1. create a own role 
+	-> vi devops.rb
+		{
+			name "devops"
+			description Wev server "
+			run_list "recipe[test-cookbook::test-recipe]"/run_list "recipe[test-cookbook]"
+			run_list "recipe[apache-cookbook::apache -recipe]"/run_list "recipe[apache-cookbook]"
+		}	
+2. now upload role on chef-server
+->	cd ..
+	--> knife role from file roles/devops.rb
+			|-- knife role list
+
+3. if you create again a new node < ec2-user >
+	|--- Afer creating a new node 
+	(i) - Bootstraping 
+				(a) -- Bootstrap 
+ 			--- knife bootstrap " node  private Ip " --ssh-user ec2-user --sudo -i " node key pair " -< name >
+		ex.- ->   knife bootstrap 172.10.255.10 --ssh-user ec2-user --sudo -i singapore keypair.pem -N Node_1
+		
+----------------------------------------------------------------------------------------------------
+Connecting role Node to chef - server 
+
+ --> knife node list
+ --> knife node run_list set node_1 "role[devops]" *
+ 		|--- knife node show node _1
+ 		
+--> knife cookbook upload test-cokbook *
+		
+		
+		%w(http mairiadb-server unzip git vim ) .each do |p|
+		package p do
+		action :install
+		end
+		end
+		
+		--> knife cookbook upload test-cokbook *
+		
+	
+		
+		
+		
+		
+		
+		
