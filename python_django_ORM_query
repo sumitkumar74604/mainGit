@@ -1,3 +1,0 @@
-1. from UserManagementApplication.models import User
-2. user.objects.all()
-3.

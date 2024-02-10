@@ -1,3 +1,0 @@
-rows =int(input("Enter row number")) 
-for row in range (rows):
-	

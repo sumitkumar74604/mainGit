@@ -1,8 +1,0 @@
-#include<stdio.h>
-
-int main()
-{
- a=5;
- a++;
- printf("%d",a);
-}s
