@@ -1,0 +1,81 @@
+Get all user list
+
+URL: http://localhost:8000/adminapp/user_api/users/
+Request Type: GET 
+Response:
+[{"userid": 1, "name": "Admin", "email": "admin@gmail.com", "password": "12345", "mobile": "9456787677", "address": "Indore M.P", "gender": "Male", "dob": "2023-04-07", "date": "2024-01-05T15:47:14+05:30", "status": 1, "role": "admin"}, {"userid": 2, "name": "Rahul Sharma", "email": "rahulsharma@gmail.com", "password": "12345", "mobile": "7898782344", "address": "Indore M.P", "gender": "Male", "dob": "2005-02-18", "date": "2024-01-06T15:08:20.414319+05:30", "status": 1, "role": "user"}]
+==========================================================
+add user 
+
+URL:http://localhost:8000/adminapp/user_api/createuser/
+Request Type:POST 
+Request Body:
+{
+    "name":"Neha Sharma",
+    "email":"nehasharma@gmail.com",
+    "password":"12345",
+    "mobile":"8998767656", 
+    "address":"Bhopal M.P",
+    "gender":"Female",
+    "dob":"2002-01-02"
+}
+Response:
+{
+    "userid": 3,
+    "name": "Neha Sharma",
+    "email": "nehasharma@gmail.com",
+    "password": "12345",
+    "mobile": "8998767656",
+    "address": "Bhopal M.P",
+    "gender": "Female",
+    "dob": "2002-01-02",
+    "date": "2024-01-18T15:33:32.059489+05:30",
+    "status": 0,
+    "role": "user"
+}
+=================================================
+
+Get a single record
+
+URL:http://localhost:8000/adminapp/user_api/user/1/
+Request Type: GET 
+Response:
+{"userid": 1, "name": "Admin", "email": "admin@gmail.com", "password": "12345", "mobile": "9456787677", "address": "Indore M.P", "gender": "Male", "dob": "2023-04-07", "date": "2024-01-05T15:47:14+05:30", "status": 1, "role": "admin"}
+===========================================
+
+update a user
+
+URL:http://localhost:8000/adminapp/user_api/updateuser/3/
+Request Type: PUT 
+Request Parameter:
+{
+    "name":"Neha Sharma",
+    "email":"nehasharma@gmail.com",
+    "password":"12345",
+    "mobile":"8998767678", 
+    "address":"Dewas M.P",
+    "gender":"Female",
+    "dob":"2002-01-02"
+}
+Response:
+{
+    "userid": 3,
+    "name": "Neha Sharma",
+    "email": "nehasharma@gmail.com",
+    "password": "12345",
+    "mobile": "8998767678",
+    "address": "Dewas M.P",
+    "gender": "Female",
+    "dob": "2002-01-02",
+    "date": "2024-01-18T15:33:32.059489+05:30",
+    "status": 0,
+    "role": "user"
+}
+=================================
+
+Delete a user
+
+URL: http://localhost:8000/adminapp/user_api/deleteuser/3/
+Request Type:DELETE 
+Response:
+User Delete Successfully!!

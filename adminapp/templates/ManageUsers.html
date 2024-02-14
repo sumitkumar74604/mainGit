@@ -1,0 +1,171 @@
+{% extends 'MasterIndex.html' %}
+{% load static %}
+{% block navbar %}
+<nav class="navbar navbar-expand-lg bg-white navbar-light shadow border-top border-5 border-primary sticky-top p-0">
+    <a href="index.html" class="navbar-brand bg-primary d-flex align-items-center px-2 px-lg-2">
+        <h6 class="mb-2 text-white">USERMANAGEMENT</h6>
+    </a>
+    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto p-4 p-lg-0">
+            <a href="{{curl}}adminapp/adminhome/" class="nav-item nav-link active">AdminHome</a>
+            <a href="{{curl}}adminapp/manageusers" class="nav-item nav-link">ManageUsers</a>
+            <!-- <a href="service.html" class="nav-item nav-link">Services</a> -->
+            <a href="{{curl}}adminapp/addcategory" class="nav-item nav-link">Add Category</a>
+            <a href="{{curl}}adminapp/viewcategory" class="nav-item nav-link">View Category</a>
+            <a href="{{curl}}adminapp/changepassword" class="nav-item nav-link">Change Password</a>
+
+            <a href="{{curl}}adminapp/logout/" class="nav-item nav-link">Logout</a>
+        </div>
+        <h6 class="m-0 pe-lg-5 d-none d-lg-block"></i>{{email}}</h6>
+    </div>
+</nav>
+{% endblock navbar%}
+
+{% block carousel%}
+{% endblock carousel%}
+
+{% block about%}
+{% endblock about%}
+
+{% block fact%}
+{% endblock fact%}
+
+{% block service%}
+<!-- <a href="#" target="_blank" onclick="window.open('http://www.google.com'); window.open('http://www.facebook.com');">Click Here</a>
+
+<a href="http://www.google.com" onclick="location.href='http://www.facebook.com';" target="_blank">Open Two Links With One Click</a> -->
+
+
+<!-- Modal -->
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit Profile</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form method="post" action="" novalidate>
+                {% csrf_token %}
+                <div class="row g-3">
+                    
+                    <div class="col-12 col-sm-12">
+                        <input type="text" 
+                        name="name"
+                        value=""
+                        class="form-control border-0" placeholder="Name" style="height: 55px;">
+                    </div>
+                    <div class="col-12 col-sm-12">
+                        <input type="email" 
+                        name="email"
+                        class="form-control border-0" placeholder="Email" style="height: 55px;">
+                    </div>
+                    <div class="col-12 col-sm-12">
+                        <input type="password"
+                        name="password" 
+                        class="form-control border-0" 
+                        placeholder="Password" style="height: 55px;">
+                    </div>
+                    <div class="col-12 col-sm-12">
+                        <input type="text"
+                        name="mobile"
+                        class="form-control border-0" placeholder="Mobile" style="height: 55px;">
+                    </div>
+                    <div class="col-12 col-sm-12">
+                        <input type="text" 
+                        name="gender"
+                        class="form-control border-0" style="height: 55px;"
+                        placeholder="Gender"
+                        >
+                       
+                    </div>
+                    <div class="col-12">
+                        <textarea class="form-control border-0" 
+                        name="address"
+                        placeholder="Address"
+                        rows="5"
+                        ></textarea>
+                    </div>
+                    <div class="col-12 col-sm-12">
+                        <input type="date" 
+                        name="dob"
+                        class="form-control border-0" style="height: 55px;">
+                    </div> 
+                    <div class="col-12">
+                        <button class="btn btn-primary w-100 py-3" type="submit">Edit</button>
+                    </div>
+                    
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div> -->
+<div class="container-xxl py-5">
+    <div class="container py-5">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h1 class="mb-5">View & Manage Users</h1>
+        </div>
+        <div class="row g-4" align="center" style="display: flex;">
+            {% for index in context %}
+            <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="service-item p-4">
+                    <div class="overflow-hidden mb-4">
+                        <img class="img-fluid" src="{% static 'image/profilepic.png' %}" alt="" height="100" width="100">
+                    </div>
+                    <h4 class="mb-3">{{index.name}}</h4>
+                    <h4 class="mb-3">{{index.email}}</h4>
+                    <h4 class="mb-3">{{index.mobile}}</h4>
+                    <h4 class="mb-3">{{index.address}}</h4>
+                    <h4 class="mb-3">{{index.gender}}</h4>
+                    <h4 class="mb-3">{{index.dob}}</h4>
+                        <div class="team-item p-4" >
+                            <div class="btn-slide mt-1" >
+                                <i class="fa fa-share"></i>
+                                <span style="background-color: white;"
+                                >
+                                    
+                                <a href="{{curl}}adminapp/record?userid={{index.userid}}" 
+                                
+                                
+                                
+                                    style="color: white;font-weight: bold;background-color: orange;"
+                                >Edit |</a> 
+                            
+                                    
+                                    
+                                    <a href="{{curl}}adminapp/deleteuser?userid={{index.userid}}" style="color: white;font-weight: bold;background-color: red;">  Delete |</a>
+                                    {% if index.status %}
+                                    <a href="{{curl}}adminapp/manageuserstatus?userid={{index.userid}}&status=verify" style="color: white;font-weight: bold;background-color: darkgoldenrod;"> Block </a>
+                                    {% else %}
+                                    <a href="{{curl}}adminapp/manageuserstatus?userid={{index.userid}}&status=block" style="color: white;font-weight: bold;background-color: green;"> Verify </a>
+                                    {% endif%}
+                                </span>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+       
+    </div>
+</div>
+{% endblock service%}
+
+{% block feature%}
+{% endblock feature%}
+
+{% block price%}
+{% endblock price%}
+
+{% block quote%}
+{% endblock quote%}
+
+{% block team %}
+{% endblock team %}
+
+{% block testimonial%}
+{% endblock testimonial%}

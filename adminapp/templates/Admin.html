@@ -1,0 +1,59 @@
+{% extends 'MasterIndex.html' %}
+
+{% block navbar %}
+<nav class="navbar navbar-expand-lg bg-white navbar-light shadow border-top border-5 border-primary sticky-top p-0">
+    <a href="index.html" class="navbar-brand bg-primary d-flex align-items-center px-2 px-lg-2">
+        <h6 class="mb-2 text-white">USERMANAGEMENT</h6>
+    </a>
+    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto p-4 p-lg-0">
+            <a href="{{curl}}adminapp/adminhome/" class="nav-item nav-link active">AdminHome</a>
+            <a href="{{curl}}adminapp/manageusers" class="nav-item nav-link">ManageUsers</a>
+            <!-- <a href="service.html" class="nav-item nav-link">Services</a> -->
+            <a href="{{curl}}adminapp/addcategory" class="nav-item nav-link">Add Category</a>
+
+            <a href="{{curl}}adminapp/viewcategory" class="nav-item nav-link">View Category</a>
+
+            <a href="{{curl}}adminapp/changepassword" class="nav-item nav-link">Change Password</a>
+
+            <a href="{{curl}}adminapp/logout/" class="nav-item nav-link">Logout</a>
+        </div>
+        <h6 class="m-0 pe-lg-5 d-none d-lg-block"></i>{{email}}</h6>
+    </div>
+</nav>
+{% endblock navbar%}
+
+{% block carousel%}
+{% endblock carousel%}
+
+{% block about%}
+{% endblock about%}
+
+{% block fact%}
+{% endblock fact%}
+
+{% block service%}
+{% endblock service%}
+
+{% block feature%}
+{% endblock feature%}
+
+{% block price%}
+{% endblock price%}
+
+{% block quote%}
+{% endblock quote%}
+
+{% block team %}
+{% endblock team %}
+
+{% block testimonial%}
+<h1>Admin Home</h1>
+{%  for tup in details.0.items %}
+<h4>{{tup.1}}</h4>
+{% endfor%}
+
+{% endblock testimonial%}
