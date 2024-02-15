@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-)oy2^^&69d&nqv283-0*n(_v*_n$m)gmvk+2&tdj#gc6^=near
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -96,7 +96,7 @@ DATABASES = {
         'NAME': 'UserManagement_DataBase',
         'USER':'sammy',
         'PASSWORD':'password',
-        'HOST':'localhost',
+        'HOST':'127.0.0.1',
         'PORT':3306
     }
 }
@@ -141,7 +141,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-CURRENT_URL = 'http://localhost:8000/'
+CURRENT_URL = 'http://0.0.0.0:8000/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
