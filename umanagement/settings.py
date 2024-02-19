@@ -141,7 +141,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-CURRENT_URL = 'http://13.212.249.191:8001/'
+CURRENT_URL = 'http://13.215.189.176:8001/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
