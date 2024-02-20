@@ -167,7 +167,7 @@ def viewcategory(request):
 
 def Logout(request):
     logout(request)
-    return redirect('http://13.213.4.203:8002/login')
+    return redirect('http://13.213.4.203:8004/login')
 
 #django rest framework
 '''

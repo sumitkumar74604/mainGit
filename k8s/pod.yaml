@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: usermanagement-pod
+spec:
+  containers:
+  - name: usermamagement-app-container
+    image: kumarsumit74604/usermanagementapp:v1
+    ports:
+    - containerPort: 8004
+

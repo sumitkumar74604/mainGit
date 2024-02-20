@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: usermanagement-deployment
+  labels:
+    app: usermanagement-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: usermanagement-app
+  template:
+    metadata:
+      labels:
+        app: usermanagement-app
+    spec:
+      containers:
+      - name: usermanagement-app
+        image: kumarsumit74604/usermanagementapp:v1
+        ports:
+        - containerPort: 8004
+
