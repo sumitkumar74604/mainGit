@@ -1,24 +1,24 @@
-FROM python:3 
-RUN pip install django==4.2.10
-COPY . .
+#FROM python:3.8.10
+#RUN pip install django==4.2.4
+#COPY . .
 #RUN pip install mysqlclient
-RUN python manage.py migrate
+#RUN python manage.py migrate
 #Create a superuser with username "admin" and password "admin"
-RUN echo "from django.contrib.auth.models import User; \
-          User.objects.create_superuser('admin1', 'admin@admin.com', 'admin')" | \
-     python manage.py shell
-CMD ["python","manage.py","runserver","0.0.0.0:8002"]
+#RUN echo "from django.contrib.auth.models import User; \
+#         User.objects.create_superuser('admin1', 'admin@admin.com', 'admin')" | \
+#     python manage.py shell
+#CMD ["python","manage.py","runserver","0.0.0.0:8002"]
 #--------------------------------------------------------------------------------------------------------------------------
-#FROM python:3
+FROM python:3
 
 # Install Django
-#RUN pip install django==4.2.10
+RUN pip install django==4.2.10
 
 # Set the working directory
 #WORKDIR /app
 
 # Copy the current directory contents into the container at /app
-#COPY . .
+COPY . .
 
 # Install pkg-config and other development libraries
 #RUN apt-get update && apt-get install -y pkg-config
@@ -37,15 +37,15 @@ CMD ["python","manage.py","runserver","0.0.0.0:8002"]
 #    mysql -e "ALTER USER 'sammy'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password'; FLUSH PRIVILEGES;"
 
 # Apply migrations
-#RUN python manage.py migrate
+RUN python manage.py migrate
 
 # Create a superuser with username "admin" and password "admin"
-#RUN echo "from django.contrib.auth.models import User; \
-#          User.objects.create_superuser('admin1', 'admin@admin.com', 'admin')" | \
-#     python manage.py shell
+RUN echo "from django.contrib.auth.models import User; \
+          User.objects.create_superuser('admin1', 'admin@admin.com', 'admin')" | \
+     python manage.py shell
 
 # Start the Django development server
-#CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8002"]
 #-------------------------------------------------------------------------------------------
 
 
