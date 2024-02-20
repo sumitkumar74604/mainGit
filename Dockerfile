@@ -7,5 +7,5 @@ RUN python manage.py migrate
 RUN echo "from django.contrib.auth.models import User; \
           User.objects.create_superuser('superadmin', 'superadmin@admin.com', 'admin')" | \
      python manage.py shell
-
-CMD ["python","manage.py","runserver","0.0.0.0:8002"]
+EXPOSE 8003
+CMD ["python","manage.py","runserver","0.0.0.0:8003"]
