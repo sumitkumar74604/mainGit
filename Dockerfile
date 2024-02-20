@@ -12,7 +12,7 @@
 # CMD ["python","manage.py","runserver","0.0.0.0:8002"]
 
 # Use an official Python runtime as a parent image
-FROM python:3
+FROM python:3.8.10
 
 # Install Django
 RUN pip install django==4.2.10
