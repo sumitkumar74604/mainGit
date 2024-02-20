@@ -18,7 +18,7 @@ FROM python:3
 RUN pip install django==4.2.10
 
 # Set the working directory
-WORKDIR /app
+#WORKDIR /app
 
 # Copy the current directory contents into the container at /app
 COPY . .
@@ -32,7 +32,7 @@ RUN echo "from django.contrib.auth.models import User; \
      python manage.py shell
 
 # Expose port (if needed)
-EXPOSE 8002
+#EXPOSE 8002
 
 # Start the Django development server
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8002"]
