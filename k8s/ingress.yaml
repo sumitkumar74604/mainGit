@@ -16,8 +16,8 @@ spec:
           service:
             name: usermanagement-ingress
             port:
-              number: 8004
-  - host: "*.example.com"
+              number: 8001
+  - host: "*usermanagement.com"
     http:
       paths:
       - path: "/usermanagementapp"
@@ -26,4 +26,4 @@ spec:
           service:
             name: usermanagement-ingress
             port:
-              number: 8004
+              number: 8001
