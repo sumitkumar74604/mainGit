@@ -1,0 +1,105 @@
+Q1. What is NginX ?
+	NGINX is open source Software for Web Serving, Reverrse, Proxying, Caching and more 
+	It Started out as a web server Degine for maximum Performance and stability.
+	NGINX is highly scalable as well, meanning that its service grow along with its clients' Traffic 
+	
+	
+--->	Architecture of NGINX web server
+---> 	Directories Struxture of Nginx Web Server
+				1. conf.d
+				2. Modules - Enabled
+				3. Modules - Available
+				4. Nginx.config
+				5. Sites - enable
+		
+Q2. ----------- > How to install NGINX In Ubuntu Server
+				install	  (i) 	sudo apt install nginx -y
+						      (ii)	systemctl status 
+				path	    (iii)	cd /etc/nginx ls --- <installed>
+				restart	  (iv)	systemctl restart nginx
+
+
+Q3. ------------> How to Configuration setup virtualhost location
+			1	        (a).	mkdir <create a folder>
+			        	(b).	cd devops
+    							        |-- nano devops	
+          								|-- paste here of /etc/nginx/sites-enabled <data>
+          								|-- ctrl+X
+      				(c). 	Got to cd /etc/nginx
+      							    |-- nano nginx.config
+      								        	|-- scrol down search 	
+      						<near of>	|	include /etc/nginx/conf.d/*.config 
+      								|-- paste path here of created config
+      										include /home /ubuntu/devops/*;
+      										
+      2.		  (a).	cd /etc/nginx/sites-available
+      							|-- remove default file
+      					delete	|		rm -f default
+      				(b)			|-- come to local devops <which you have new file created>
+      			*	(c)	copy	|	|-- ln -s /home/ubuntu/devop/devops /etc/nginx/sites-available/
+      				(d)	check	|-- sudo ngnix -t
+      				(e)	restart	|-- systemctl restart nginx
+      				
+				
+		3.	ls		(i)		go to cd /etc/nginx/sites-enable
+			delete				|-- rm default
+										|-- 
+			* root file(ii)	cd /var/www/html
+								|--- index.nginx-debian.html
+			add some data 				|--- <h1> Digital DevOps</h1>
+
+		4. Copy your public Ip and paste on browser
+
+
+Q4.	How to pro rediraction nginx :-
+		1.		Go to cd /etc/nginx/sites-enabled/
+					|-- sudo nano default		
+							|-- server
+							{
+								listen 80 default_server;
+								listen [::]:80 abc.com;
+								
+								server_name_;
+								location / {
+		paste your file path here			root /home/ubuntu/Desktop<file.name>;
+								index index.html index.htm index.nginx-debian.html;
+											proxy_pass		"http://127.0.0.1:3000";
+											try_files $url/ =404
+											}
+							}
+							
+		2. nginx -t
+		3. systemctl restart nginx
+
+
+Q5.	How to Ailas The NGINX Server or Running 2 Sites in one congif
+		(a)	pwd	|-- [/etc/nginx/sites-available]$ ls
+				output		|-- default
+		(b)					|-- sudo nano default
+		(c)						*	(i)|-- copy created config file from location
+										and on same place and edit
+									(ii)|-- location /devops {
+																alias /var/www/html/blog;
+																index index.html index.htm index.nginx-debian.html;
+															 }
+									(iii)|-- nginx -t
+							restart	(iv) |-- systemctl restart nginx
+					
+					
+	
+
+Q6.		How to Authentication on nginx web server
+			(i)	|-- sudo apt install apache2-utils 
+			(ii)|-- sudo htpasswd -c /etc/nginx/.htpasswd nginx
+						|--- passwd 123
+			(iii)|-- cat /etc/nginx/.htpasswd
+					output	|--- password
+			(iv) |-- sudo nano /etc/nginx/sites-enabled/default
+						(a) |-- scrol down find location
+						(b)	|-- {
+									auth_basic "private property":
+									auth_basic_user_file /etc/nginx/.htpasswd;
+								
+								}
+								
+			(v)	|-- systemctl restart nginx 
