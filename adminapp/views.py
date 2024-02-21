@@ -37,7 +37,7 @@ def sessioncheckadmin_middleware(get_response):
               if 'emailid' not in request.session:            
             # if request.session["emailid"]==None or request.session["role"]!="admin":
             #    print("EmailId:",request.session["emailid"])
-                  response=redirect('http://localhost:8002/login')
+                  response=redirect('http://13.215.47.16:8002/login')
                   return response
               else:
                   response=get_response(request) 
@@ -167,7 +167,7 @@ def viewcategory(request):
 
 def Logout(request):
     logout(request)
-    return redirect('http://13.213.4.203:8001/login')
+    return redirect('http://13.215.47.16:8002/login')
 
 #django rest framework
 '''
