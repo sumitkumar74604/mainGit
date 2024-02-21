@@ -1,0 +1,292 @@
+------------- Devops Live projects -------------------
+link - https://github.com/shreys7/django-todo.git
+link - https://github.com/shadeemerhi/reddit-clone-yt.git
+With server
+1.		Take code from GitHub 
+			(a)	|-- git clone 
+			(b)	|-- create a virtualenv	( python -m venv Devops_project_env )
+			(c)	|-- Activate ( source/Devops_project_env/bin/activate)
+			(d)	|-- (install) pip install django 
+			(e)	|-- Go to in project ( cd Devops_project)
+			(f)	|-- Migrate ( python manage.py migrate )
+			(g)	|-- Create super user ( python manage.py createsuperuser)
+						|-- username 
+						|-- passwd
+			(h)	|-- run server (python manage.py runserver )
+		*	(i)	|-- Create Required file ( pip freeze > requriments.txt )
+Versioning		--------------------------New Branch-------------------------------------
+			(j) |-- Create a branch ( git checkout -b feature/deployment _app )
+				add 	|-- git add .
+				commit	|-- git commit -m "This is DevOps Projects"
+				push	|-- git push origin feature/deployment _app
+-------------------------------------------------------------------------------------------	
+On EC2 Linux server --------------------------- AWS Ubuntu ------------------------------------
+				(a)	|-- Create a EC2 Machine ( Ubuntu )
+				(b)	|-- access your machine 
+						(c)|-- mkdir Devops_Project		
+								(i)|-- cd DevOps_project
+						Priviledege	(*) chmod 777 DevOps_project/
+								(ii)|-- git clone <url>
+						(d) |-- install python3 ( sudo apt install python3)|| sudo apt install python3-pip
+						(e)	|-- Pip install django
+						(f)	|-- Migrate ( python manage.py migrate )
+								|-- Got project's setting.py 
+											|-- TIME_ZONE='Asia/Dhaka'
+											|-- Allowed_Host = 	['*']
+						(g)	|-- Run server ( python manage.py runserver 0.0.0.0:8001)
+						(h)	|-- Migrate ( python manage.py migrate)
+						(i)	|-- Go to your Ec2 instance -- select your security Group
+		*							|-- add inbound rule
+											|-- select <custom TCP ><port:8001><anywhere> Save
+											|-- select <custom TCP ><port:8080><anywhere> save
+						(g)	|-- Run server ( python manage.py runserver 0.0.0.0:8001)
+						
+				* How to run in background your app < nohup python3 manage.py runserver 0.0.0.0:8001/$ <enter>
+				* List of running service < lsof -i:8001>
+				* To kill running Service < kill -9 <pid>>
+--------------------------------------------------------------------------------------------------------------------
+************************************* Docker Engine ****************************************************************
+---------------------------------------------------------------------------------------------------------------------
+2.		(a) |--  install Docker ( sudo apt install docker.io)
+		(b)	|--	Vi Dockerfile
+			|		|-- {
+			|				FROM python:3
+			|				Run pip install django==4.2.0
+			jango==4.2.4
+			|				COPY . .
+			|					 | |-- Destination
+			|					 |-- Source
+			|				RUN Python manage.py Migrate
+			|				CMD [" python","manage.py","runserver","0.0.0.0:8001"]
+			|			}:wq
+		(c)	|-- Build image ( sudo docker build . -t Docker_project)
+		(d)	|-- docker ps -a
+		(e)	|-- sudo docker run -p 8001:8001 <image ID>
+--------------------------------------------------------------------------------------------------------------------
+******************************************* Jenkins on ubuntu ****************************************************************
+--------------------------------------------------------------------------------------------------------------------
+3.(i)	(a)	|-- Install Java ( sudo apt install openjdk-17-jre)
+		(b)	|-- check java version (java --version)
+		(c)	|-- Install jenkins from site ( sudo apt install jenkins )
+		(d)	|-- Start jenkins ( systemctl enable jenkins)( systemctl strat jenkins) ( status jenkins)
+		(e)	|-- login your server ( ip address :8080 )
+	*		|		unlock	|-- /var/lib/jenkins/secrets/initialAdminPassod 
+			|						|-- copy password from here and paste here
+			|						|-- Url < private/public ip address :8080>
+		(f)	|-- start
+		(g)	|-- systemctl stop	jenkins
+	-------------------------------------------------------------------------------------------------------------------
+3. (ii)	-------------------------------------- installing Jenkins Using Dockerfile 
+			(a)	|-- pull ( docker pull jenkins/jenkins)
+			(b)	|-- run ( docker run -d -p 8080:8080 docker.io/jenkins/jenkins:latest
+			(c)	|-- docker ps -a
+				|		|-- docker kill <image id> ---------- when you want to kill service 
+			(d)	|-- sudo systemctl status jenkins
+			---------------------------------------------------------------------------------
+			
+	(iii)	(e)	|-- Create a Node *
+						|-- Node name ---- Devops_project
+						|-- Type ----- permanant
+						|-- Create
+								|-- Description
+								|		|--
+								|-- Remote Directory
+							*	|		|-- /home/ubuntu
+								|-- Level 
+								|		|-- devops_project_devloper
+								|-- usages
+								|		|-- As muuch as posible
+							*	|-- Use web socket
+								|-- save
+*	Only CD	(f) |--- Create job
+						|-- Name -- Devops_project
+						|-- Build step 
+						|		|-- Execute Shell
+						|			|-- Command{
+						|					*|-- Cd /home/ubuntu/projects/devops_project <path>
+						|					*|-- sudo docker build . -t devops_project
+						|					*|-- sudo docker run -d -p 8000:8000
+						|					}
+						|-- Save 
+		-----------------------------------------------------------------------------------------------				
+*  CI/CD (iv)(g)	|-- Create A Repo on your Git hub
+				|-- Push your code on your GitHub A/c
+				|-- install plugin for git (Git Client)(git server) *
+				|--  Go to configure 
+							|-- scroll down select GitHub Server		
+							|		|-- Add ----- Jenkins
+							|		|		|-- kind -- Secret text
+							|		|		|-- Secret
+							|		|		|	 |-- your github Access token
+							|		|		|-- ID 
+							|		|			|-- DevOps_project_Ci/cd
+							|		|-- save --- select
+							|-- save
+				|-- Create a project	
+						|-- name -- Devops_project
+						|-- Source code management --git	
+						|				|-- paste repo Url 
+						|				|-- Branches to Build -- Select your branch
+						|-- Build step -- Execute shell
+								|-- {
+										sudo docker build . -t devops_project
+										sudo docker run -p 8000:8000 -d devops_project
+									}
+									
+				--------------------------------------------------------------------------------
+4.		(v) 	------------------- Docker Compose --------------------
+					(a) |-- Install docker-compose
+					(b) |-- docker-compose -v
+					(c) |-- cd project/DevOps_project 
+					(d)	|		|-- vi docker-compose.yml
+						|			|-- {
+						|					version: "3.3"
+						|						services:
+						|							web:
+						|								build: .
+						|								ports:  
+						|									- "8000:8000"
+						|				}:wq
+					(e)	|-- docker-compose config
+					(f)	|-- sudo docker-compose up
+					(g)	|-- Push your Code again on gitHub
+					(i)	|-- Go to Jenking Select your project	
+								|-- build step
+										|-- sudo docker-compose down 
+										|-- sudo docker-compose up -d --force-recreate --no-deps --build  web
+-----------------------------------------------------------------------------------------------------------------------
+********************************* Kubernetes With Devopos Projects ***************************************
+----------------------------------------------------------------------------------------------------------
+5.(i)	(a)	|-- create a folder ( mkdir k8s)
+(Pod)	(b)			|-- cd k8s
+						|-- push your docker image ( docker push <imagename/id>)
+					|-- create pod ( vi pod.yml)
+									|-- {
+										apiVersion: v1
+										kind: pod
+										metadata:
+										 name: Devops_project
+										spec:
+										 containers:
+										  - name: Devops_application
+											image: <image_name>:v1
+											ports:
+											- containerPort: 8000
+										}:wq
+					|-- kubectl apply -f pod.yml
+					|-- kubectl get pods -0 wide
+					|-- minikube ssh
+							|-- curl -L http://172.17.3.0:8000
+				---------------------------------------------------------------------------
+5. (ii)		K8s Deployement
+				|-- create a deploye (vi deploye.yml)
+						|-- {
+							apiVersion: apps/v1
+								kind: Deployment
+								metadata:
+								  name: DevOps_project-deployment
+								  labels:
+									app: nginx
+								spec:
+								  replicas: 3
+								  selector:
+									matchLabels:
+									  app: DevOps_project-deployment
+								  template:
+									metadata:
+									  labels:
+										app: DevOps_project-deployment
+									spec:
+									  containers:
+									  - name: DevOps_project-deployment
+										image: <image_name>:v1
+										ports:
+										- containerPort: 8000
+							}
+							
+				|-- kubectl appy deploye.yml
+
+5 iii)	K8s Accessable application  
+				|-- create service.yml	
+						|-- {
+							 apiVersion: v1
+								kind: Service
+								metadata:
+								  name: DevOps_project-service
+								  labels:
+								    app: DevOps_project-service
+								spec:
+								  type: NodePort
+								  selector:
+									app: DevOps_project-service
+								  ports:
+									- port: 8000
+									  targetPort: 8000
+									  # Optional field
+									  # By default and for convenience, the Kubernetes control plane
+									  # will allocate a port from a range (default: 30000-32767)
+									  nodePort: 30007
+								}
+				|-- kubectl apply -f service.yml
+				|-- kubectl get svc
+				|-- minikube service <DevOps_project> --url
+						|-- curl -L <url> ------------------ for localially run
+				|-- sudo vi /etc/hosts
+						|--  paste your minikube ip <DevOps_project>.com
+						
+						
+5 iv )  k8s Expose your port to access in public 
+				|-- kubectl expose deployment <deployment name> --type=nodePort
+			ex-	|-- kubectl expose deployment DevOps_project-deployment --type=nodePort
+						|-- 
+						
+						
+5 vi)	k8s Port frowording to global access
+			|-- Kubectl port-forward svc/<servicename> <internal port:pod target port>  --address 0.0.0.0
+		ex -|-- kubectl port-forward svc/DevOps_project-service 8000:8000 --address 0.0.0.0 
+					|-- <paste instance public ip :8000> on browser
+					
+					
+					
+------------------------------------------------------------------------------------------------------------
+
+*************************** ingrex  *******************************************
+		|-- use for proxy .
+		|--- combination of ( NGINX + HA Proxy )
+						
+1.				(i)  |-- go to on minikube enable ingress 
+							|-- minikube addon enable ingress
+				(ii) |-- vi ingress.yaml
+								|-- {
+										apiVersion: networking.k8s.io/v1
+										kind: Ingress
+										metadata:
+										  name: example-ingress
+										  annotations:
+											nginx.ingress.kubernetes.io/rewrite-target: /
+										spec:
+										  rules:
+										  - host: example.com
+											http:
+											  paths:
+											  - path: "/<app_name>"
+												pathType: Prefix
+												backend:
+												  service:
+													name: <service_name>
+													port:
+													  number: 8000
+										  - host: "*.example.com"
+											http:
+											  paths:
+											  - path: "/<app_name>"
+												pathType: Prefix
+												backend:
+												  service:
+													name: <service_name>
+													port:
+													  number: 8000
+									}:wq
+					|-- kubectl apply -f ingress.yaml
+					|-- curl -L domain.com/test
+	
