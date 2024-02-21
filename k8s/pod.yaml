@@ -7,5 +7,5 @@ spec:
   - name: usermamagement-app-container
     image: kumarsumit74604/usermanagementapp:v1
     ports:
-    - containerPort: 8004
+    - containerPort: 8001
 
