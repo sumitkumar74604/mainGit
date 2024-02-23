@@ -7,16 +7,16 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: usermanagement-ingress
+  - host: "usermanagement.com"
     http:
       paths:
-      - path: "/your_app_name"
+      - path: "/"
         pathType: Prefix
         backend:
           service:
             name: usermanagement-ingress
             port:
-              number: 8001
+              number: 8002
   - host: "*usermanagement.com"
     http:
       paths:
@@ -26,4 +26,4 @@ spec:
           service:
             name: usermanagement-ingress
             port:
-              number: 8001
+              number: 8002
