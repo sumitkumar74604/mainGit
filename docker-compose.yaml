@@ -2,15 +2,14 @@ version: '3'
 services:
   
   backend:
-    build:
-      context: .
+    image: kumarsumit74604/flaskapp:v1 
     ports:
       - "5000:5000"
     environment:
       MYSQL_HOST: mysql
       MYSQL_USER: admin
       MYSQL_PASSWORD: admin
-      MYSQL_DB: myDb
+      MYSQL_DB: FlaskAppDataBase
     depends_on:
       - mysql
 
@@ -19,8 +18,8 @@ services:
     ports:
       - "3306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: myDb
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: FlaskAppDataBase
       MYSQL_USER: admin
       MYSQL_PASSWORD: admin
     volumes:
@@ -29,3 +28,4 @@ services:
 
 volumes:
   mysql-data:
+
